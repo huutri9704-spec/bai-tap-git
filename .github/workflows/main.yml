@@ -1,0 +1,28 @@
+name: Kiem tra cuoi ky CI-CD
+
+# Chạy mỗi khi có ai đó Push code lên nhánh main
+on:
+  push:
+    branches: ["main"]
+
+jobs:
+  test-du-an:
+    runs-on: ubuntu-latest # Chạy trên máy chủ ảo Linux
+
+    steps:
+      - name: 1. Lay code ve may chu
+        uses: actions/checkout@v3
+
+      - name: 2. Kiem tra phien ban
+        run: |
+          echo "Dang kiem tra du an truoc khi deploy..."
+          node -v
+
+      - name: 3. Kiem tra file index.html
+        run: |
+          if [ -f index.html ]; then
+            echo "Thanh cong: File index.html ton tai!"
+          else
+            echo "Loi: Thieu file index.html"
+            exit 1
+          fi
