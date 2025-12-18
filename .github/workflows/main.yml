@@ -7,7 +7,7 @@ on:
 
 jobs:
   test-du-an:
-    runs-on: ubuntu-latest # Chạy trên máy chủ ảo Linux
+    runs-on: none # Chạy trên máy chủ ảo Linux
 
     steps:
       - name: 1. Lay code ve may chu
